@@ -1,13 +1,13 @@
 <?php
 // Registro del menú de WordPress 
 add_theme_support( 'nav-menus' );
- 
+
 if ( function_exists( 'register_nav_menus' ) ) {
     register_nav_menus(
         array(
           'main' => 'Main'
-        )
-    );
+          )
+        );
 }
 
 function new_excerpt_length($length) {
@@ -18,21 +18,21 @@ add_filter('excerpt_length', 'new_excerpt_length');
 //  Main Sidebar
 if(function_exists('register_sidebar'))
     register_sidebar(array(
-    'name' => 'Main Sidebar',
-    'before_widget' => '',
-    'after_widget' => '<hr>',
-    'before_title' => '<h3 class="widgettitle">',
-    'after_title' => '</h3>',
-));
- 
+        'name' => 'Main Sidebar',
+        'before_widget' => '',
+        'after_widget' => '<hr>',
+        'before_title' => '<h3 class="widgettitle">',
+        'after_title' => '</h3>',
+        ));
+
 //Habilitar thumbnails
-  add_theme_support('post-thumbnails');
- 
-  add_image_size('ieee_thumb', 80,80, true);
+add_theme_support('post-thumbnails');
+
+add_image_size('ieee_thumb', 80,80, true);
 
   // set_post_thumbnail_size(150, 150, true);
 
-  add_theme_support('automatic-feed-links');
+add_theme_support('automatic-feed-links');
 
 
 // Permitir comentarios encadenados
@@ -106,18 +106,18 @@ register_taxonomy("cliente", array("proyecto"), array("hierarchical" => true, "l
 
 <?php 
 function custom_search_widget() { 
-?> 
+    ?> 
 
-<form method="get" id="searchform" role="form" class="form-inline" action="<?php bloginfo('url'); ?>/">
- 
-    <div class="form-group">
-        <input type="search" placeholder="Search" class="form-search form-control" value="<?php the_search_query(); ?>" name="s" id="s" />
-        
-    </div>
-    <hr>
-</form>
- 
-<?php
+    <form method="get" id="searchform" role="form" class="form-inline" action="<?php bloginfo('url'); ?>/">
+     
+        <div class="form-group">
+            <input type="search" placeholder="Search" class="form-search form-control" value="<?php the_search_query(); ?>" name="s" id="s" />
+            
+        </div>
+        <hr>
+    </form>
+    
+    <?php
 } if (function_exists('register_sidebar_widget')) 
 register_sidebar_widget(__('Search'), 'custom_search_widget');
 ?>
